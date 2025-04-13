@@ -9,12 +9,12 @@ const UserDetail = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/v1/users/${id}`)
-      .then((res) => setUser(res.data))
+      .then((res) => setUser(res.data.user))
       .catch((err) => console.error("Error fetching user:", err));
   }, [id]);
 
   if (!user) return <p className="p-8 text-gray-600">Loading...</p>;
-
+debugger
   return (
     <div className="max-w-xl mx-auto p-6 bg-white mt-12 rounded shadow">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">User Detail</h2>

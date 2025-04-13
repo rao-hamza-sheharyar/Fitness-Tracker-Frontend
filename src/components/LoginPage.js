@@ -23,6 +23,10 @@ const LoginPage = () => {
         password
       });
 
+      if (!res.data.user.confirmed) {
+        setError("Please verify your email before logging in.");
+        return;
+      }
       const token = res.data.meta.token;
       const user = res.data.user;
 
@@ -64,6 +68,15 @@ const LoginPage = () => {
             Login
           </button>
         </form>
+        <p className="text-center text-sm text-gray-500 mt-4">
+          Don’t have an account?{" "}
+          <button
+            onClick={() => navigate("/signup")}
+            className="text-blue-600 hover:underline"
+          >
+            Sign up here
+          </button>
+        </p>
       </div>
     </div>
   );
