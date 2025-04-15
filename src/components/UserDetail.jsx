@@ -14,7 +14,6 @@ const UserDetail = () => {
   }, [id]);
 
   if (!user) return <p className="p-8 text-gray-600">Loading...</p>;
-debugger
   return (
     <div className="max-w-xl mx-auto p-6 bg-white mt-12 rounded shadow">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">User Detail</h2>

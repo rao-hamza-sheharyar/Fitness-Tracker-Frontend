@@ -10,7 +10,6 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     const token = searchParams.get("token");
-      debugger
     if (token) {
       axios
         .get(`http://localhost:3000/api/v1/verify_email?token=${token}`)
