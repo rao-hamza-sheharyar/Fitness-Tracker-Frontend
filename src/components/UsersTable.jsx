@@ -17,10 +17,10 @@ const UsersTable = () => {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    window.location.href = "/login";
-  };
+
+
+
+
 
   return (
     <div className="max-w-6xl mx-auto p-8">
@@ -28,12 +28,6 @@ const UsersTable = () => {
         <h1 className="text-3xl font-bold text-gray-800">
           {role === "admin" ? "All Users" : "My Profile"}
         </h1>
-        <button
-          onClick={handleLogout}
-          className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded"
-        >
-          Logout
-        </button>
       </div>
 
       <div className="overflow-x-auto rounded shadow">
@@ -44,7 +38,7 @@ const UsersTable = () => {
               <th className="px-6 py-3 border-b">Email</th>
               <th className="px-6 py-3 border-b">Firstname</th>
               <th className="px-6 py-3 border-b">Lastname</th>
-              {role === "admin" && <th className="px-6 py-3 border-b">Action</th>}
+              {role === "admin" && <><th className="px-6 py-3 border-b">Action</th><th className="px-6 py-3 border-b">Assign Diet Plan</th></>}
             </tr>
           </thead>
           <tbody>
@@ -55,18 +49,25 @@ const UsersTable = () => {
                 <td className="px-6 py-3 border-b">{user.firstname || "-"}</td>
                 <td className="px-6 py-3 border-b">{user.lastname || "-"}</td>
                 {role === "admin" && (
-                  <td className="px-6 py-3 border-b">
+                  <><td className="px-6 py-3 border-b">
                     <Link to={`/users/${user.id}`}>
                       <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
                         Show
                       </button>
                     </Link>
-                  </td>
+                  </td><td className="p-2 border text-center">
+                   <Link to={`/dashboard/${user.id}`}>
+                      <button className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700">
+                        Assign Diet Plan
+                      </button>
+                    </Link>
+                  </td></>
                 )}
               </tr>
             ))}
           </tbody>
         </table>
+
       </div>
     </div>
   );

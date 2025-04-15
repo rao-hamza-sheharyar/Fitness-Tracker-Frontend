@@ -34,6 +34,7 @@ const LoginPage = () => {
       localStorage.setItem("role", user.role);
       localStorage.setItem("userId", user.id);
 
+
       navigate("/");
     } catch (err) {
       setError("Invalid email or password");

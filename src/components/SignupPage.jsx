@@ -33,7 +33,6 @@ const SignupPage = () => {
       setSubmitted(true);
       setTimeout(() => navigate("/login"), 5000);
     } catch (err) {
-        debugger
       setError(err.response?.data?.errors || "Signup failed.");
       setMessage("");
     }
